@@ -20,9 +20,10 @@ end
 And(/^I supply my details$/) do
 
   @browser.text_field(:id => 'FirstName_13').set 'Test'
+  @browser.text_field(:id => 'LastName_13').set 'Qa'
+  #@browser.text_field(:id => 'LastName_13').set Faker::Name.last_name
 
-  #puts Lastname = Faker::Name.last_name
-  @browser.text_field(:id => 'LastName_13').set Faker::Name.last_name
+
 
   #Emailaddress = Faker::Internet.free_email
   @browser.text_field(:id => 'Email_13').set Faker::Internet.free_email
