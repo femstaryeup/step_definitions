@@ -28,8 +28,15 @@ end
 
 Then(/^I should be able to view the product manual$/) do
 
-@browser.goto 'http://dep3.t1electroluxqa.electrolux.se/en/support/user-manuals/?q=ZB3101'
-sleep 5
+  @browser.goto 'http://dep3.t1electroluxqa.electrolux.se/en/support/user-manuals/?q=ZB3101'
+sleep 3
+  @browser.goto 'http://www.electrolux-ui.com//DocumentDownLoad.aspx?DocURL=2014\000\00076EFXumES.pdf'
+  #@browser.text_field(:xpath => ".//*[@id='js-download-modal-email']").set 'dep-tester1@headlondon.com'
+  #@browser.button(:xpath => ".//*[@id='modal-download']/div/div/button").click
+sleep 10
+
+  #@browser.button(:xpath => "/html/body/div[7]/div/input").click
+  #@browser.link(:id => "product-manuals").click
   #Verify page title to be Download electrolux doc page
 
 
