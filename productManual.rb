@@ -1,11 +1,11 @@
 
 Given(/^that I am a consumer$/) do
-  @browser.goto 'http://dep3.t1electroluxqa.electrolux.se/en/'
+  @driver.navigate.to ('http://dep3.t1electroluxqa.electrolux.se/en/')
   sleep 7
-  @browser.element(:id => 'uxModalLogin').click
-  @browser.text_field(:id => 'Email_14').set 'dep-tester1@headlondon.com'
-  @browser.text_field(:id => 'Password').set 'quality1234'
-  @browser.button(:xpath => ".//*[@id='GlobalMenuLogin']/button").click
+  @driver.find_element(:id, 'uxModalLogin').click
+  @driver.find_element(:id, 'Email_14').send_keys 'dep-tester1@headlondon.com'
+  @driver.find_element(:id, 'Password').send_keys 'quality1234'
+  @driver.find_element(:xpath, ".//*[@id='GlobalMenuLogin']/button").click
 
 
 end
@@ -30,12 +30,13 @@ Then(/^I should be able to view the product manual$/) do
 
   @browser.goto 'http://dep3.t1electroluxqa.electrolux.se/en/support/user-manuals/?q=ZB3101'
 sleep 3
-  @browser.goto 'http://www.electrolux-ui.com//DocumentDownLoad.aspx?DocURL=2014\000\00076EFXumES.pdf'
+
+  #@browser.goto 'http://www.electrolux-ui.com//DocumentDownLoad.aspx?DocURL=2014\000\00076EFXumES.pdf'
   #@browser.text_field(:xpath => ".//*[@id='js-download-modal-email']").set 'dep-tester1@headlondon.com'
   #@browser.button(:xpath => ".//*[@id='modal-download']/div/div/button").click
 sleep 10
 
-  #@browser.button(:xpath => "/html/body/div[7]/div/input").click
+  @browser.element(:css => "li:nth-child(1) li:nth-child(2) .is-downloadable p:nth-child(2) a").click
   #@browser.link(:id => "product-manuals").click
   #Verify page title to be Download electrolux doc page
 
